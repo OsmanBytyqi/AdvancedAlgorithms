@@ -44,3 +44,8 @@ function expectedMax(balls: number[], K: number): number {
 console.log(expectedMax([10, 10, 10, 10, 10, 10, 10], 3)); // Output: 10.0
 console.log(expectedMax([10, 50, 40, 20, 30], 5)); // Output: 50.0
 console.log(expectedMax([11, 12, 13, 14, 15, 16, 18], 1)); // Output: 14.142857142857142
+
+
+
+//Time Complexity: approximately ( O(n^2) ) in the worst case
+//Space Complexity: ( O(n) )
