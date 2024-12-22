@@ -1,4 +1,4 @@
-function factorial(n) {
+function factorial(n: number): number {
     if (n === 0 || n === 1) return 1;
     let result = 1;
     for (let i = 2; i <= n; i++) {
@@ -7,12 +7,13 @@ function factorial(n) {
     return result;
 }
 
-function binomialCoefficient(n, k) {
+function binomialCoefficient(n: number, k: number): number {
     if (k > n || k < 0) return 0;
     return factorial(n) / (factorial(k) * factorial(n - k));
 }
 
-function expectedMax(balls, K) {
+function expectedMax(balls: number[], K: number): number {
+    // Sort the balls array
     balls.sort((a, b) => a - b);
     const n = balls.length;
 
@@ -39,6 +40,7 @@ function expectedMax(balls, K) {
     return expectedValue;
 }
 
+// Example usage:
 console.log(expectedMax([10, 10, 10, 10, 10, 10, 10], 3)); // Output: 10.0
 console.log(expectedMax([10, 50, 40, 20, 30], 5)); // Output: 50.0
 console.log(expectedMax([11, 12, 13, 14, 15, 16, 18], 1)); // Output: 14.142857142857142
