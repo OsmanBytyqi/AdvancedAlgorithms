@@ -7,9 +7,13 @@ function monteCarloSimulation(
     let sum: number = 0;
     for (let i = 0; i < simulations; i++) {
         let selected: number[] = [];
+        let used: Set<number> = new Set();
         while (selected.length < K) {
             let index: number = Math.floor(Math.random() * n);
-            selected.push(balls[index]);
+            if (!used.has(index)) {
+                selected.push(balls[index]);
+                used.add(index);
+            }
         }
         sum += Math.max(...selected);
     }

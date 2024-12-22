@@ -1,0 +1,20 @@
+{
+  "name": "AdvancedAlgorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:OsmanBytyqi/AdvancedAlgorithms.git",
+  "license": "MIT",
+  "scripts": {
+    "comp-mc": "rimraf dist && yarn tsc src/monteCarlo.ts",
+    "start-mc": "node monteCarlo.js",
+    "comp-lt": "yarn tsc src/lotteryTicket.ts",
+    "start-lt": "node lotteryTicket.js"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
