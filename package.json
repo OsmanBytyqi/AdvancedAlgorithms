@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "comp-mc": "rimraf dist && yarn tsc src/monteCarlo.ts",
-    "start-mc": "node monteCarlo.js",
+    "start-mc": "node src/monteCarlo.js",
     "comp-lt": "yarn tsc src/lotteryTicket.ts",
-    "start-lt": "node lotteryTicket.js"
+    "start-lt": "node src/lotteryTicket.js"
   },
   "dependencies": {
     "ts-node": "^10.9.2"
