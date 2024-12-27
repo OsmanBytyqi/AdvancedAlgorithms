@@ -1,20 +1,21 @@
-function factorial(n: number): number {
-    if (n === 0 || n === 1) return 1;
-    let result = 1;
-    for (let i = 2; i <= n; i++) {
-        result *= i;
-    }
-    return result;
-}
+function precomputeBinomialCoefficients(n: number, k: number): number[][] {
+    const C: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
 
-function binomialCoefficient(n: number, k: number): number {
-    if (k > n || k < 0) return 0;
-    return factorial(n) / (factorial(k) * factorial(n - k));
+    for (let i = 0; i <= n; i++) {
+        C[i][0] = 1;
+        for (let j = 1; j <= Math.min(i, k); j++) {
+            C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
+        }
+    }
+
+    return C;
 }
 
 function expectedMax(balls: number[], K: number): number {
     balls.sort((a, b) => a - b);
     const n = balls.length;
+
+    const binomialCoefficients = precomputeBinomialCoefficients(n, K);
 
     let expectedValue = 0;
 
@@ -22,8 +23,8 @@ function expectedMax(balls: number[], K: number): number {
         const currentBall = balls[i];
         const lessThanCurrent = i;
 
-        const waysToChooseKMinus1 = binomialCoefficient(lessThanCurrent, K - 1);
-        const totalWaysToChooseK = binomialCoefficient(n, K);
+        const waysToChooseKMinus1 = binomialCoefficients[lessThanCurrent][K - 1];
+        const totalWaysToChooseK = binomialCoefficients[n][K];
 
         const probability = waysToChooseKMinus1 / totalWaysToChooseK;
 
